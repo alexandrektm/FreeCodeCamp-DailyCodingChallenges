@@ -2,6 +2,7 @@ def has_exoplanet(readings):
 
     average_reading : float = 0
     sum_readings : int = 0
+    does_have_exo : bool = False
 
     luminosity_catalog = {
         "0":0,
@@ -54,8 +55,12 @@ def has_exoplanet(readings):
     for read_unit in readings:
 
         if luminosity_catalog[read_unit] <= (0.8*(average_reading)):
-            return True
-        else:
-            return False
+            does_have_exo = True
+            break
+
+    if does_have_exo:
+        return True
+    else:
+        return False
 
 print(has_exoplanet("9AB98AB9BC98A"))
