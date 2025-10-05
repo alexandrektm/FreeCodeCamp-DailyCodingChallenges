@@ -7,7 +7,7 @@ def classification(temp):
         "F": 6000,
         "A": 7500,
         "B": 10000,
-        "O": 3000,
+        "O": 30000,
     }
 
     for star_type in list(star_catalog.keys()):
