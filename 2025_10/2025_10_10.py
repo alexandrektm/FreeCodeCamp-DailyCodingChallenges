@@ -7,10 +7,19 @@
 #Ignore the mass of the rocket itself. Only compute fuel needed to lift the payload and its own fuel.
 #For example, given a payload mass of 50 kg, you would need 10 kg of fuel to lift it (payload / 5), which increases the total mass to 60 kg, which needs 12 kg to lift (2 additional kg), which increases the total mass to 62 kg, which needs 12.4 kg to lift - 0.4 additional kg - which is less 1 additional kg, so we stop here. The total mass to lift is 62.4 kg, 50 of which is the initial payload and 12.4 of fuel.
 #
-#eturn the amount of fuel needed rounded to one decimal place.
+#Return the amount of fuel needed rounded to one decimal place.
 
 def launch_fuel(payload):
 
-    
+    fuel_needed = payload / 5
 
-    return fuel_needed
+    while fuel_needed >= 1:
+
+        payload += fuel_needed
+        fuel_needed = fuel_needed / 5
+
+    total_fuel = float(f"{(payload/5):.1f}")
+
+    return total_fuel
+
+print(launch_fuel(50))
