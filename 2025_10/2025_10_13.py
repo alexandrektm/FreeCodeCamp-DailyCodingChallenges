@@ -3,7 +3,6 @@
 # 
 # The given input will always be a four-digit string in 24-hour time format, from "0000" to "2359".
 
-
 def to_12(raw_time):
 
     hours = int(raw_time[0:2])
@@ -17,9 +16,6 @@ def to_12(raw_time):
         type = "PM"
         if (hours > 12):
             hours = hours % 12
-
-    if len(minutes) < 2:
-        minutes = "0" + minutes
 
     return f"{hours}:{minutes} {type}"
 
