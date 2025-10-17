@@ -51,7 +51,7 @@ def validate(email):
         
         if character == ".":
             if index >= 2:
-                return True
+                break
             return False
 
         if not (character.isalpha()):
