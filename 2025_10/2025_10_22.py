@@ -27,6 +27,7 @@ def wise_speak(sentence):
 
                         result_list = words[index+1:]
                         result_list[len(result_list)-1] = result_list[len(result_list)-1]+","
+                        
                         for late_word in cached_list:
                                 result_list.append(late_word)
                         result_list[len(result_list)-1] = result_list[len(result_list)-1]+f"{punctuation}"
