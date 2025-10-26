@@ -15,6 +15,8 @@ import sys
 #
 
 
+
+
 def mergeHighDefinitionIntervals(intervals):
 
         old_initial = 0
@@ -41,7 +43,44 @@ def mergeHighDefinitionIntervals(intervals):
 
         return result
 
+
+def mergeHighDefinitionIntervals(intervals):
+       
+        if len(intervals) == 0:
+               return ""
+
+        integer_list = []
+
+        for interval in intervals:
+                for i in range(interval[0],interval[1]+1):
+                        if i not in integer_list:
+                                integer_list.append(i)
+
+        final_intervals = []
+        cached = [integer_list[0]]
+        counter = integer_list[0]
+
+        for index, number in enumerate(integer_list):
+               
+                if index == len(integer_list)-1:
+                      cached.append(number)
+                      final_intervals.append(cached)
+                
+                elif number != counter:
+                       cached.append(integer_list[index-1])
+                       final_intervals.append(cached)
+                       cached = [number]
+                       counter = number
+
+                counter += 1
+
+        return final_intervals
+
+
 print(mergeHighDefinitionIntervals([[1, 3], [2, 6], [8, 10], [15, 18]]))
+
+
+
 
 
 if __name__ == '__main__':
