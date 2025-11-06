@@ -14,3 +14,15 @@ def sequence(n):
         return final_list
 
 print(sequence(27))
+
+
+# BETTER SOLUTION WITH COMPREHENSION:
+
+def sequence(n):
+
+        new_list = [str(i) for i in range(1, n + 1)]
+        final_list = "".join(new_list)
+
+        return final_list
+
+print(sequence(27))
