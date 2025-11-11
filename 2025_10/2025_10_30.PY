@@ -27,4 +27,4 @@ def nth_prime(n):
 
     return result
 
-print(nth_prime(5))
+print(nth_prime(1000))
