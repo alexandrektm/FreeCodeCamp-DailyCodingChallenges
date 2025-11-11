@@ -39,4 +39,34 @@ def navigate(commands):
 
         return place
 
+
+def navigate(commands):
+
+        place_list = ["Home"]
+        pointer = 0
+
+        for element in commands:
+
+                if element == "Back":
+                        if pointer > 0:
+                                pointer -= 1
+
+                if element == "Forward":
+                        if pointer < (len(place_list)-1):
+                                pointer += 1
+
+                place_command = element.split()
+
+                if place_command[0] == "Visit":
+
+                        place_list = place_list[0:(pointer+1)]
+
+                        place_list.append(" ".join(place_command[1::]))
+                        pointer = (len(place_list)-1)
+
+        result = place_list[pointer]
+
+        return result
+
+
 print(navigate(["Visit About Us", "Visit Gallery", "Back", "Back"]))
