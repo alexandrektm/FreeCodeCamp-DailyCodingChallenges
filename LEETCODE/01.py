@@ -1,7 +1,7 @@
-id_list = [1, 2, 3, 4, 5, 6, 7]
-buy_list = [1, 4, 5, 2, 3, 8, 2]
-sell_list = [2, 6, 2, 7, 7, 17, 5]
-budget = 100
+id_list =   [0,  1, 2,  3,  4, 5, 6,  7,  8,  9]
+buy_list =  [2,  7, 4,  9,  7, 3, 4,  1,  7,  6]
+sell_list = [6, 14, 8, 16, 10, 6, 5, 11, 15, 11]
+budget = 30
 
 profit_list = []
 weight_list = []
@@ -25,19 +25,19 @@ selected = []
 
 for element in seek_list:
    
-    if budget == 0:
-        break
 
     if element[4] <= 0:
         continue
    
     if element[2] <= budget:
         budget -= element[2]
+        if budget <= 0:
+            budget += element[2]
+            continue
+
         total_profit += element[4]
         selected.append(element)
 
 print(selected)
 print(total_profit)
 print(seek_list)
-print(profit_list)
-print(weight_list)
