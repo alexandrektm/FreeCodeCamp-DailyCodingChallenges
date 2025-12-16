@@ -1,7 +1,7 @@
 id_list = [1, 2, 3, 4, 5, 6, 7]
 buy_list = [1, 4, 5, 2, 3, 8, 2]
 sell_list = [2, 6, 2, 7, 7, 17, 5]
-budget = 14
+budget = 100
 
 profit_list = []
 weight_list = []
@@ -10,7 +10,7 @@ weight_list = []
 for index, item in enumerate(buy_list):
 
    profit_item =  sell_list[index] - item
-   weight_item = profit_item - item
+   weight_item = sell_list[index] / item
 
    profit_list.append(profit_item)
    weight_list.append(weight_item)
@@ -27,6 +27,9 @@ for element in seek_list:
    
     if budget == 0:
         break
+
+    if element[4] <= 0:
+        continue
    
     if element[2] <= budget:
         budget -= element[2]
